@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2022 at 02:08 PM
+-- Generation Time: Jan 01, 2023 at 07:17 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -126,15 +126,16 @@ INSERT INTO `genres` (`genre`) VALUES
 
 CREATE TABLE `movie` (
   `movie_name` varchar(40) NOT NULL,
-  `release_date` date DEFAULT NULL
+  `release_date` date DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `movie`
 --
 
-INSERT INTO `movie` (`movie_name`, `release_date`) VALUES
-('lost in the wood', '2016-12-17');
+INSERT INTO `movie` (`movie_name`, `release_date`, `url`) VALUES
+('lost in the wood', '2016-12-17', NULL);
 
 -- --------------------------------------------------------
 
@@ -145,6 +146,17 @@ INSERT INTO `movie` (`movie_name`, `release_date`) VALUES
 CREATE TABLE `movie_actors` (
   `movie_name` varchar(40) NOT NULL,
   `actor_id` char(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie_directors`
+--
+
+CREATE TABLE `movie_directors` (
+  `movie_name` varchar(40) NOT NULL,
+  `director_id` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -209,6 +221,13 @@ ALTER TABLE `movie_actors`
   ADD KEY `actor_id` (`actor_id`);
 
 --
+-- Indexes for table `movie_directors`
+--
+ALTER TABLE `movie_directors`
+  ADD PRIMARY KEY (`movie_name`,`director_id`),
+  ADD KEY `director_id` (`director_id`);
+
+--
 -- Indexes for table `movie_genres`
 --
 ALTER TABLE `movie_genres`
@@ -225,6 +244,13 @@ ALTER TABLE `movie_genres`
 ALTER TABLE `movie_actors`
   ADD CONSTRAINT `movie_actors_ibfk_1` FOREIGN KEY (`movie_name`) REFERENCES `movie` (`movie_name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `movie_actors_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`personal_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `movie_directors`
+--
+ALTER TABLE `movie_directors`
+  ADD CONSTRAINT `movie_directors_ibfk_1` FOREIGN KEY (`movie_name`) REFERENCES `movie` (`movie_name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_directors_ibfk_2` FOREIGN KEY (`director_id`) REFERENCES `director` (`personal_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_genres`
