@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2023 at 07:17 PM
+-- Generation Time: Jan 05, 2023 at 12:17 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -46,6 +46,51 @@ INSERT INTO `account` (`username`, `passwords`, `email`, `joined_date`, `members
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `account_comment_status`
+--
+
+CREATE TABLE `account_comment_status` (
+  `account_username` varchar(40) NOT NULL,
+  `ban` bit(1) DEFAULT b'0',
+  `ban_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account_movie_grade`
+--
+
+CREATE TABLE `account_movie_grade` (
+  `account_username` varchar(40) NOT NULL,
+  `movie_name` varchar(40) NOT NULL,
+  `grade` int(1) NOT NULL CHECK (`grade` between 1 and 5),
+  `grade_date` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account_movie_grade`
+--
+
+INSERT INTO `account_movie_grade` (`account_username`, `movie_name`, `grade`, `grade_date`) VALUES
+('GHOST', 'lost in the wood', 5, '2023-01-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account_movie_like`
+--
+
+CREATE TABLE `account_movie_like` (
+  `account_username` varchar(40) NOT NULL,
+  `movie_name` varchar(40) NOT NULL,
+  `likes` bit(1) NOT NULL,
+  `likes_date` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `actor`
 --
 
@@ -63,6 +108,26 @@ CREATE TABLE `actor` (
 
 INSERT INTO `actor` (`personal_id`, `fist_name`, `last_name`, `birth_date`) VALUES
 ('1234567895', 'saeed', 'mozafari', '2013-02-08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `text` varchar(200) NOT NULL,
+  `account_username` varchar(40) NOT NULL,
+  `movie_name` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `text`, `account_username`, `movie_name`) VALUES
+(1, 'very good ', 'GHOST', 'lost in the wood');
 
 -- --------------------------------------------------------
 
@@ -190,10 +255,38 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`username`);
 
 --
+-- Indexes for table `account_comment_status`
+--
+ALTER TABLE `account_comment_status`
+  ADD PRIMARY KEY (`account_username`);
+
+--
+-- Indexes for table `account_movie_grade`
+--
+ALTER TABLE `account_movie_grade`
+  ADD PRIMARY KEY (`account_username`,`movie_name`),
+  ADD KEY `movie_name` (`movie_name`);
+
+--
+-- Indexes for table `account_movie_like`
+--
+ALTER TABLE `account_movie_like`
+  ADD PRIMARY KEY (`account_username`,`movie_name`),
+  ADD KEY `movie_name` (`movie_name`);
+
+--
 -- Indexes for table `actor`
 --
 ALTER TABLE `actor`
   ADD PRIMARY KEY (`personal_id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `account_username` (`account_username`),
+  ADD KEY `movie_name` (`movie_name`);
 
 --
 -- Indexes for table `director`
@@ -235,8 +328,45 @@ ALTER TABLE `movie_genres`
   ADD KEY `genre` (`genre`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `account_comment_status`
+--
+ALTER TABLE `account_comment_status`
+  ADD CONSTRAINT `account_comment_status_ibfk_1` FOREIGN KEY (`account_username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `account_movie_grade`
+--
+ALTER TABLE `account_movie_grade`
+  ADD CONSTRAINT `account_movie_grade_ibfk_1` FOREIGN KEY (`account_username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `account_movie_grade_ibfk_2` FOREIGN KEY (`movie_name`) REFERENCES `movie` (`movie_name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `account_movie_like`
+--
+ALTER TABLE `account_movie_like`
+  ADD CONSTRAINT `account_movie_like_ibfk_1` FOREIGN KEY (`account_username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `account_movie_like_ibfk_2` FOREIGN KEY (`movie_name`) REFERENCES `movie` (`movie_name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`account_username`) REFERENCES `account` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`movie_name`) REFERENCES `movie` (`movie_name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `movie_actors`
