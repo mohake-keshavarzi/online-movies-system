@@ -2,12 +2,17 @@
 <html>
     <head>
         <title>Sign in</title>
+        <link type="text/css" href="assets/styles/authentications-black-yellow.css" 
+        rel="stylesheet" />
     </head>
+    <body>
+    <section class="whole-content">
     <section class="main-section">
         
         <img src="assets/images/logo160.png" alt="logo">
         <h1>Log in</h1>
         <form> <!--action and method should be added-->
+            <p>
             Username or Email:
             <br />
             <input type="text" name="username" value="" /> <!--name should be edited regarded to backend-->
@@ -18,9 +23,12 @@
             <input type="password" name="password" value="" /> <!--name should be edited regarded to backend-->
             <br />
             <input type="submit" value="Sign in">
+            </p>
         </form>
         <br />
-        <p>Don't have an account? <a href="">Sign up</a> <!--URL to sign up page should be added--></p>
         
     </section>
+    <p class="no-account-p">Don't have an account? <a href="">Sign up</a> <!--URL to sign up page should be added--></p>
+    </section>
+    </body>
 </html>

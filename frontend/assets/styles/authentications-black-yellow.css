@@ -1,0 +1,50 @@
+:root{
+    --primary-background: #343a40;
+    --secondary-foreground: #7952b3;
+    --primary-foreground: #FFC107;
+    --secondary-background: #E1E8Eb;
+    
+}
+
+body{
+    background-color: var(--secondary-background);
+    padding: 20px;
+    font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+.whole-content{
+    max-width: 6in;
+    min-width: 3 in;
+    margin: auto;
+    margin-top: 5%;
+    
+}
+
+.main-section{
+    
+    color: white;
+    background-color: var(--primary-background);
+    align-self: center;
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 30px;
+    
+}
+
+.main-section a{
+    color: var(--primary-foreground);
+}
+.main-section h1{
+    font-size: 36px; 
+    font-style: normal;
+}
+
+.no-account-p{
+    text-align: center;
+}
+
+.no-account-p a{
+    color: var(--secondary-foreground);
+}
+
