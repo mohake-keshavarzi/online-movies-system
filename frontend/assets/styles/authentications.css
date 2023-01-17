@@ -72,11 +72,11 @@ body{
 }
 
 
-.no-account-p{
+.under-main-section{
     text-align: center;
 }
 
-.no-account-p a{
+.under-main-section a{
     color: var(--secondary-foreground);
 }
 
