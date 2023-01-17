@@ -1,0 +1,82 @@
+
+body{
+    background-color: var(--secondary-background);
+    padding: 20px;
+    font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+.whole-content{
+    max-width: 5in;
+    min-width: 3in;
+    margin: auto;
+    margin-top: 10px;
+    height:auto;
+    
+}
+
+.main-section{
+    
+    color: var(--primary-text-color);
+    background-color: var(--primary-background);
+    align-self: center;
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 60px;
+    /* line-height: 0%; */
+}
+
+.main-section .logo{
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.main-section a{
+    color: var(--primary-foreground);
+    float: right;
+}
+.main-section h1{
+    font-size: 36px; 
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+}
+
+.main-section input{
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.main-section .buttom{
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    background-color: var(--primary-foreground);
+    color: var(--primary-text-color);
+    border-style: none;
+    border-radius: 10px;
+}
+
+.main-section .buttom:hover{
+    filter: brightness(115%);
+}
+.main-section .buttom:active{
+    filter: brightness(85%);
+}
+
+
+.no-account-p{
+    text-align: center;
+}
+
+.no-account-p a{
+    color: var(--secondary-foreground);
+}
+
