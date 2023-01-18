@@ -1,5 +1,7 @@
 from search import *
+from loginPageFunctions import *
 #testing codes
+#testing search functions
 print('movie name')
 movies = searchByMovieName('lost in the wood')
 for i in movies:
@@ -24,3 +26,9 @@ print('-----------------------------------------------')
 print('search password by email')
 password = searchPassword('allo@gmail.com')
 print(password)
+#testing login page functions
+print('-----------------------------------------------')
+print('password check')
+print(checkPasswordValidity('1234'),checkPasswordValidity('idgf78f2gfwifgi'))
+print('email check')
+print(checkEmailValidity('mmd@aut.ac.ir'),checkEmailValidity('avdya@ahvcd'))
