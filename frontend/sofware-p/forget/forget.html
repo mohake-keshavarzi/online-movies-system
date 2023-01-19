@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forget Password</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      color: #eee;
+      overflow: hidden;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .main {
+      width: 100vw;
+      height: 100vh;
+      background-position: center;
+      background-image: url("./Assets/wallpaper1.jpg");
+    }
+    .blur {
+      backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      width: 70%;
+      height: 35rem;
+      background-color: rgba(150, 150, 150, 0.2);
+      border-radius: 5rem;
+      padding: 3rem;
+    }
+    .h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .p {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .box1 {
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .input {
+      height: 2rem;
+      width: 60%;
+      padding-left: 1rem;
+      background-color: rgba(255, 255, 255, 0.103);
+      border: 0.1rem solid rgb(255, 255, 255);
+      border-radius: 3rem;
+    }
+    ::placeholder {
+      color: #eee;
+    }
+    .box2 {
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .btn {
+      background-color: rgb(255, 255, 255);
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      border: none;
+      color: black;
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .err {
+      color: red;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <div class="blur">
+        <div class="box">
+          <h2 class="h2">Reset Password</h2>
+          <p class="p">
+            Enter the email associated with your account and we'll send an email
+            with instructions to reset your password
+          </p>
+          <div class="box1">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="example@domain.co"
+              class="input"
+            />
+          </div>
+          <div class="box2">
+            <button class="btn">SEND</button>
+          </div>
+          <p class="err"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let p = document.querySelector(".err");
+    let btn = document.querySelector(".btn");
+    let checker = async () => {
+      let inp = document.getElementById("email");
+      let val = inp.value;
+      if (val.search("@") < 0) {
+        p.innerText = "Your Email is not Valid";
+        p.style.color = "red";
+      } else {
+        // serach in DB for validation of email
+        //data = await fetch(BACKEND URL)
+        let valid = false;
+        if (valid) {
+          // if email exist in db this section will run
+          p.innerText = "We send an reset password email for you";
+          p.style.color = "green";
+        } else {
+          // if email does not exist in db this section will run
+          p.innerText = "This email is not exist";
+          p.style.color = "res";
+        }
+      }
+    };
+    btn.addEventListener("click", () => checker());
+  </script>
+</html>
