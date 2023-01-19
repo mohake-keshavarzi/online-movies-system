@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 12:17 PM
+-- Generation Time: Jan 19, 2023 at 07:23 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -107,7 +107,20 @@ CREATE TABLE `actor` (
 --
 
 INSERT INTO `actor` (`personal_id`, `fist_name`, `last_name`, `birth_date`) VALUES
-('1234567895', 'saeed', 'mozafari', '2013-02-08');
+('1234567895', 'saeed', 'mozafari', '2013-02-08'),
+('1245765524', 'Eli', 'Wallach', '1915-12-07'),
+('1678567461', 'Marlon Brando', 'Marlon Brando', '1924-04-03'),
+('1961111278', 'Henry Fonda', 'Henry Fonda', '1905-05-16'),
+('2644292531', 'Al', 'Pacino', '1940-04-25'),
+('3367334484', 'Robert', 'De Niro', '1943-08-17'),
+('3434599578', 'Martin', 'Balsam', '1919-11-04'),
+('4657896754', 'Tim', 'Robbins', '1958-10-16'),
+('4759874199', 'Heath', 'Ledger', '1979-04-04'),
+('4767524222', 'Viggo', 'Mortensen', '1958-10-20'),
+('4776824342', 'Clint', 'Eastwood', '1930-05-31'),
+('5124451333', 'Elijah', 'Wood', '1981-01-28'),
+('6734792551', 'Christian', 'Bale', '1974-01-30'),
+('7779324267', 'Morgan', 'Freeman', '1937-06-01');
 
 -- --------------------------------------------------------
 
@@ -148,7 +161,13 @@ CREATE TABLE `director` (
 --
 
 INSERT INTO `director` (`personal_id`, `first_name`, `last_name`, `birth_date`) VALUES
-('1234567896', 'Alfred', 'Hichkak', '2000-10-10');
+('1234567896', 'Alfred', 'Hichkak', '2000-10-10'),
+('1255292647', 'Christopher', 'Nolan', '1970-07-30'),
+('1342561941', 'Sergio', 'Leone', '1929-01-03'),
+('3451221245', 'Francis', 'Ford Coppola', '1939-04-07'),
+('4569321787', 'Peter', 'Jackson', '1961-10-31'),
+('5069291544', 'Frank', 'Darabont', '1959-01-28'),
+('8435292578', 'Sidney', 'Lumet', '1924-06-25');
 
 -- --------------------------------------------------------
 
@@ -200,7 +219,14 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_name`, `release_date`, `url`) VALUES
-('lost in the wood', '2016-12-17', NULL);
+('12 Angry Men', '1957-06-25', NULL),
+('lost in the wood', '2016-12-17', NULL),
+('The Dark Knight', '2008-05-19', NULL),
+('The Godfather', '1972-11-25', NULL),
+('The Godfather: Part II', '1974-05-17', NULL),
+('The Good, the Bad and the Ugly', '1966-04-07', NULL),
+('The Lord of the Rings: The Return of the', '2003-01-05', NULL),
+('The Shawshank Redemption', '1994-12-17', NULL);
 
 -- --------------------------------------------------------
 
@@ -213,6 +239,26 @@ CREATE TABLE `movie_actors` (
   `actor_id` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `movie_actors`
+--
+
+INSERT INTO `movie_actors` (`movie_name`, `actor_id`) VALUES
+('12 Angry Men', '1961111278'),
+('12 Angry Men', '3434599578'),
+('The Dark Knight', '4759874199'),
+('The Dark Knight', '6734792551'),
+('The Godfather', '1678567461'),
+('The Godfather', '2644292531'),
+('The Godfather: Part II', '2644292531'),
+('The Godfather: Part II', '3367334484'),
+('The Good, the Bad and the Ugly', '1245765524'),
+('The Good, the Bad and the Ugly', '4776824342'),
+('The Lord of the Rings: The Return of the', '4767524222'),
+('The Lord of the Rings: The Return of the', '5124451333'),
+('The Shawshank Redemption', '4657896754'),
+('The Shawshank Redemption', '7779324267');
+
 -- --------------------------------------------------------
 
 --
@@ -223,6 +269,19 @@ CREATE TABLE `movie_directors` (
   `movie_name` varchar(40) NOT NULL,
   `director_id` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movie_directors`
+--
+
+INSERT INTO `movie_directors` (`movie_name`, `director_id`) VALUES
+('12 Angry Men', '8435292578'),
+('The Dark Knight', '1255292647'),
+('The Godfather', '3451221245'),
+('The Godfather: Part II', '3451221245'),
+('The Good, the Bad and the Ugly', '1342561941'),
+('The Lord of the Rings: The Return of the', '4569321787'),
+('The Shawshank Redemption', '5069291544');
 
 -- --------------------------------------------------------
 
@@ -240,9 +299,23 @@ CREATE TABLE `movie_genres` (
 --
 
 INSERT INTO `movie_genres` (`movie_name`, `genre`) VALUES
+('12 Angry Men', 'Crime'),
+('12 Angry Men', 'Drama'),
 ('lost in the wood', 'Action'),
 ('lost in the wood', 'Animation'),
-('lost in the wood', 'Horrror');
+('lost in the wood', 'Horrror'),
+('The Dark Knight', 'Action'),
+('The Dark Knight', 'Crime'),
+('The Dark Knight', 'Drama'),
+('The Godfather', 'Crime'),
+('The Godfather', 'Drama'),
+('The Godfather: Part II', 'Crime'),
+('The Godfather: Part II', 'Drama'),
+('The Good, the Bad and the Ugly', 'Adventure'),
+('The Lord of the Rings: The Return of the', 'Action'),
+('The Lord of the Rings: The Return of the', 'Adventure'),
+('The Lord of the Rings: The Return of the', 'Drama'),
+('The Shawshank Redemption', 'Drama');
 
 --
 -- Indexes for dumped tables
