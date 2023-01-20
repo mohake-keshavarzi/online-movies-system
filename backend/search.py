@@ -27,6 +27,23 @@ def searchByMovieGenre(genre):
     for i in myCursor:
         movies.append(i)
     return movies
+#searching by actor id
+def searchByActorID(actorID):
+    movies = []
+    query = "select movie_name,release_date,url from movie natural join movie_actors where actor_id = %s"
+    myCursor.execute(query,(actorID,))
+    for i in myCursor:
+        movies.append(i)
+    return movies
+#searching by director id
+def searchByDirectorID(directorID):
+    movies = []
+    query = "select movie_name,release_date,url from movie natural join movie_directors where director_id = %s"
+    myCursor.execute(query,(directorID,))
+    for i in myCursor:
+        movies.append(i)
+    return movies
+#searching by director name
 #administartive search
 #search by unique user name
 def searchUserByUsername(username):
