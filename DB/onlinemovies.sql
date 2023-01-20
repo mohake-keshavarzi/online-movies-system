@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2023 at 07:23 PM
+-- Generation Time: Jan 20, 2023 at 09:55 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -41,7 +41,17 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`username`, `passwords`, `email`, `joined_date`, `membership`, `membreship_time`) VALUES
-('GHOST', '12375845ss', 'allo@gmail.com', '2022-12-30 12:50:43', b'0', NULL);
+('Alfred', 'alfiJOON9987', 'a.fred@gmail.com', '2023-01-20 07:48:44', b'1', '2023-03-09'),
+('DreamLord', '34ASWA589f', 'ss.dream@yahoo.com', '2023-01-20 07:38:06', b'0', NULL),
+('GHOST', '12375845ss', 'allo@gmail.com', '2022-12-30 12:50:43', b'0', NULL),
+('Hades', 'eovls594666', 'little_art@hotmail.com', '2023-01-20 07:36:53', b'0', NULL),
+('Jaguar', '@@jaguar14578', 'j.alfonso@yahoo.com', '2023-01-20 07:48:44', b'0', NULL),
+('loading', 'spsfhk254', 'variable@gmail.com', '2023-01-20 07:39:41', b'0', NULL),
+('MxRENO', '@egnch97r', 's.roozbeh@yahoo.com', '2023-01-20 07:36:53', b'0', NULL),
+('PauseChamp', 'pause123456', 'pausing_ps@yahoo.com', '2023-01-20 07:41:39', b'1', '2024-01-24'),
+('ShipTake', 'sgrp2pfik', 'war.ozle@gmail.com', '2023-01-20 07:38:06', b'0', NULL),
+('WarHammer', '2468@2468', 'War.Hammer@gmail.com', '2023-01-20 07:39:41', b'1', '2023-05-25'),
+('WoodFace', 'ss12WOOD', 'material.org@yahoo.com', '2023-01-20 07:41:39', b'0', NULL);
 
 -- --------------------------------------------------------
 
@@ -54,6 +64,23 @@ CREATE TABLE `account_comment_status` (
   `ban` bit(1) DEFAULT b'0',
   `ban_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account_comment_status`
+--
+
+INSERT INTO `account_comment_status` (`account_username`, `ban`, `ban_date`) VALUES
+('Alfred', b'0', NULL),
+('DreamLord', b'0', NULL),
+('GHOST', b'1', '2023-02-16'),
+('Hades', b'0', NULL),
+('Jaguar', b'0', NULL),
+('loading', b'0', NULL),
+('MxRENO', b'0', NULL),
+('PauseChamp', b'0', NULL),
+('ShipTake', b'0', NULL),
+('WarHammer', b'0', NULL),
+('WoodFace', b'1', '2023-06-16');
 
 -- --------------------------------------------------------
 
@@ -73,7 +100,23 @@ CREATE TABLE `account_movie_grade` (
 --
 
 INSERT INTO `account_movie_grade` (`account_username`, `movie_name`, `grade`, `grade_date`) VALUES
-('GHOST', 'lost in the wood', 5, '2023-01-05');
+('GHOST', 'lost in the wood', 5, '2023-01-05'),
+('Jaguar', '12 Angry Men', 3, '2023-01-20'),
+('Jaguar', 'The Good, the Bad and the Ugly', 4, '2023-01-20'),
+('loading', '12 Angry Men', 2, '2023-01-20'),
+('loading', 'The Dark Knight', 4, '2023-01-20'),
+('loading', 'The Godfather', 4, '2023-01-20'),
+('loading', 'The Godfather: Part II', 3, '2023-01-20'),
+('MxRENO', 'lost in the wood', 4, '2023-01-20'),
+('MxRENO', 'The Dark Knight', 1, '2023-01-20'),
+('MxRENO', 'The Godfather', 5, '2023-01-20'),
+('MxRENO', 'The Godfather: Part II', 5, '2023-01-20'),
+('ShipTake', 'The Good, the Bad and the Ugly', 1, '2023-01-20'),
+('ShipTake', 'The Lord of the Rings: The Return of the', 4, '2023-01-20'),
+('WarHammer', 'The Dark Knight', 1, '2023-01-20'),
+('WarHammer', 'The Godfather', 4, '2023-01-20'),
+('WarHammer', 'The Godfather: Part II', 5, '2023-01-20'),
+('WarHammer', 'The Lord of the Rings: The Return of the', 4, '2023-01-20');
 
 -- --------------------------------------------------------
 
@@ -87,6 +130,34 @@ CREATE TABLE `account_movie_like` (
   `likes` bit(1) NOT NULL,
   `likes_date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account_movie_like`
+--
+
+INSERT INTO `account_movie_like` (`account_username`, `movie_name`, `likes`, `likes_date`) VALUES
+('Alfred', '12 Angry Men', b'0', '2023-01-20'),
+('Alfred', 'lost in the wood', b'1', '2023-01-20'),
+('Alfred', 'The Good, the Bad and the Ugly', b'0', '2023-01-20'),
+('Alfred', 'The Lord of the Rings: The Return of the', b'0', '2023-01-20'),
+('DreamLord', 'The Godfather', b'1', '2023-01-20'),
+('DreamLord', 'The Godfather: Part II', b'1', '2023-01-20'),
+('DreamLord', 'The Lord of the Rings: The Return of the', b'1', '2023-01-20'),
+('DreamLord', 'The Shawshank Redemption', b'0', '2023-01-20'),
+('Hades', '12 Angry Men', b'0', '2023-01-20'),
+('Hades', 'The Dark Knight', b'1', '2023-01-20'),
+('Hades', 'The Godfather', b'1', '2023-01-20'),
+('Hades', 'The Good, the Bad and the Ugly', b'0', '2023-01-20'),
+('PauseChamp', 'The Dark Knight', b'1', '2023-01-20'),
+('PauseChamp', 'The Godfather: Part II', b'1', '2023-01-20'),
+('PauseChamp', 'The Good, the Bad and the Ugly', b'1', '2023-01-20'),
+('PauseChamp', 'The Shawshank Redemption', b'1', '2023-01-20'),
+('WarHammer', 'lost in the wood', b'1', '2023-01-20'),
+('WarHammer', 'The Lord of the Rings: The Return of the', b'1', '2023-01-20'),
+('WoodFace', '12 Angry Men', b'1', '2023-01-20'),
+('WoodFace', 'The Dark Knight', b'1', '2023-01-20'),
+('WoodFace', 'The Godfather', b'1', '2023-01-20'),
+('WoodFace', 'The Godfather: Part II', b'1', '2023-01-20');
 
 -- --------------------------------------------------------
 
@@ -140,7 +211,13 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `text`, `account_username`, `movie_name`) VALUES
-(1, 'very good ', 'GHOST', 'lost in the wood');
+(1, 'very good ', 'GHOST', 'lost in the wood'),
+(2, 'very cool', 'Alfred', '12 Angry Men'),
+(3, 'not bad', 'Alfred', 'lost in the wood'),
+(4, 'Best movie', 'DreamLord', 'The Godfather'),
+(5, 'First one was better', 'DreamLord', 'The Godfather: Part II'),
+(6, 'i love this movie', 'DreamLord', 'The Lord of the Rings: The Return of the'),
+(7, 'when is the next one?', 'DreamLord', 'The Lord of the Rings: The Return of the');
 
 -- --------------------------------------------------------
 
@@ -408,7 +485,7 @@ ALTER TABLE `movie_genres`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
