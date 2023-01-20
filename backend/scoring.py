@@ -17,3 +17,4 @@ def scoring(username,movieName,score):
     else:
         query2 = 'update account_movie_grade set grade = %s where account_username = %s and movie_name = %s'
         myCursor.execute(query2,(score,))
+    onlineMoviesDB.commit()
