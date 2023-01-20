@@ -39,6 +39,7 @@ def signIn(username,password,email):
     query = 'insert into account (username,password,email,joined_date,membership,membership_time) values (%s,%s,%s,%s,%s,%s)'
     myCursor.execute(query,(username,passwor,email,datetime.now(),b'0',None))
     message = 'account created successfully'
+    onlineMoviesDB.commit()
     return True
 def signUp(username,password):
     account = None
