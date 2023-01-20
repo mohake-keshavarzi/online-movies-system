@@ -17,3 +17,4 @@ def likeDislike(username,movieName,likes,likesDate):
     else:
         query2 = 'update account_movie_like set likes = %s and likes_date = %s where account_username = %s and moviename = %s'
         myCursor.execute(query1,(b'0',datetime.date.today(),username,movieName))
+    onlineMoviesDB.commit()
