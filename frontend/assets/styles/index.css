@@ -5,6 +5,26 @@ body {
     font-size: 18px;
     background-color: var(--primary-background);
     padding: 20px;
+    /* background-image: url("../../sofware-p/Background/Assets/wallpaper1.jpg");
+    background-position:center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+     */
+}
+
+body::before {
+    content: "";
+    background-image: url("../../sofware-p/Background/Assets/wallpaper1.jpg");
+    background-position:center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 /* Header styles */
@@ -69,6 +89,12 @@ nav a:hover {
     border-style: none;
     border-radius: 10px;
     }
+    .filter-section input[type="submit"]:hover{
+        filter: brightness(115%);
+    }
+    .filter-section input[type="submit"]:active{
+        filter: brightness(85%);
+    }
     
     /* Movies section styles */
     
@@ -117,4 +143,5 @@ nav a:hover {
     footer {
     text-align: center;
     padding: 20px;
+    color: var(--primary-text-color);
     }
