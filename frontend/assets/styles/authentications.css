@@ -27,6 +27,11 @@ body{
     /* line-height: 0%; */
 }
 
+.main-section a:not(.logo){
+    color: var(--primary-foreground);
+    float: right;
+}
+
 .main-section .logo{
     border-radius: 10px;
     margin-left: auto;
@@ -36,10 +41,6 @@ body{
     height: 100px;
 }
 
-.main-section a{
-    color: var(--primary-foreground);
-    float: right;
-}
 .main-section h1{
     font-size: 36px; 
     margin-top: 0.5em;
