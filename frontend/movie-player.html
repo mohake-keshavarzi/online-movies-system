@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video Player</title>
+    <style>
+      /* Add some styling to the video player and controls */
+      body{
+          background-color:black;
+      }
+      header {
+        background-color:#fff0dc54;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      header a {
+        text-decoration: none;
+      }
+      .logo {
+        margin-right: 10px;
+      }
+      img {
+        width: 50px;
+      }
+      video {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #ccc;
+        margin-top: 30px;
+      }
+      .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+      }
+      button {
+        margin: 10px;
+        background-color: #ffa800;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #ff9100;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <a href="index.html">
+          <div class="logo">
+            <img src="assets/images/logo160.png" alt="Logo">
+          </div>
+        </a>
+    </header>
+    <video id="myVideo" controls>
+      <source src="assets/movies/the_last_of_us_2023_s1_e1_1080p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="controls">
+        <button id="1XspeedButton">1x Speed</button>
+        <button id="2XspeedButton">2x Speed</button>
+    </div>
+    
+    <script>
+      var myVideo = document.getElementById("myVideo");
+      var speedButton2X = document.getElementById("2XspeedButton");
+      var speedButton1X = document.getElementById("1XspeedButton");
+      
+      speedButton2X.addEventListener("click", function() {
+        myVideo.playbackRate = 2;
+      });
+      speedButton1X.addEventListener("click", function() {
+        myVideo.playbackRate = 1;
+      });
+      
+    </script>
+  </body>
+</html>

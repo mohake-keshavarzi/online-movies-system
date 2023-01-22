@@ -1,0 +1,222 @@
+/* Global styles */
+
+body {
+    font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    background-color: var(--primary-background);
+    padding: 20px;
+    color:var(--primary-text-color);
+}
+body::before {
+    content: "";
+    background-image: url("../../sofware-p/Background/Assets/wallpaper1.jpg");
+    background-position:center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Header styles */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    /* background-color: var(--secondary-background); */
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 4px black; */
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+nav a {
+    margin-left: 20px;
+    color: var(--primary-foreground);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: var(--secondary-foreground);
+}
+
+/* Movie details styles */
+
+.movie-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.movie-details img {
+    width: 40%;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+    transition: transform 0.3s ease;
+}
+.movie-details img:hover {
+    transform: scale(1.05);
+}
+
+.movie-details h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary-foreground);
+}
+
+.movie-details h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--secondary-foreground);
+}
+
+.movie-details .genre {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    color: var(--secondary-foreground);
+    background-color: var(--secondary-background);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Movie description styles */
+
+.movie-description {
+    padding: 20px;
+    background-color: var(--primary-background);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+}
+
+.movie-description h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary-foreground);
+}
+
+.movie-description p {
+    font-size: 18px;
+    color:
+    var(--primary-text-color);
+    line-height: 1.5;
+}
+
+/* Download links styles */
+
+.download-links {
+    padding: 20px;
+    background-color: var(--secondary-background);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+}
+
+.download-links h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--secondary-foreground);
+}
+
+.download-links a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: var(--primary-foreground);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.download-links a:hover {
+    color: var(--secondary-foreground);
+}
+
+.download-links details {
+    color:var(--primary-foreground);
+    background-color: var(--primary-background);
+    border-radius: 20px;
+    border: 3px solid var(--secondary-foreground); /* add a border */
+    padding: 10px; /* add padding */
+    
+    margin-bottom: 20px; /* add margin at the bottom */
+  }
+  
+  .download-links  summary {
+    padding-bottom: 0.2em;
+    
+    font-weight: bold; /* make the summary text bold */
+    cursor: pointer; /* change the cursor to a pointer on hover */
+  }
+  
+  /* Change the appearance of the details when they're open */
+  .download-links  details[open] summary {
+    color: var(--primary-text-color);
+  }
+  
+  /* Change the appearance of the summary when the details are open */
+  .download-links  details[open] summary::before {
+    content: "-"; /* change the content of the summary */
+    padding-right: 10px; /* add padding to the right */
+  }
+
+  .download-links fieldset {
+    border: 1px solid var(--primary-text-color); /* add a border */
+    border-radius: 5px;
+    padding: 10px; /* add padding */
+    margin-bottom: 20px; /* add margin at the bottom */
+  }
+  
+  .download-links legend {
+    color: var(--secondary-text-color);
+    font-weight: bold; /* make the title text bold */
+    padding: 0 10px; /* add padding to the legend */
+    background-color:var(--primary-text-color); /* add a light gray background color to the legend */
+  }
+  
+  .watch-online{
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      border-style: dashed;
+      border-radius: 20px;
+      border-width: 2px;
+      border-color: var(--primary-foreground);
+  }
+  
+  
+
+/* Movie-details footer */
+footer {
+    /* background-color: var(--secondary-background);
+    padding: 20px; */
+    text-align: center;
+    color: var(--primary-text-color);
+    /* border-radius: 5px;
+    box-shadow: 2px 2px 4px black; */
+}
+footer a{
+    color: var(--primary-foreground);
+}
