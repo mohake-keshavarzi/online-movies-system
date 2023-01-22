@@ -182,6 +182,21 @@ nav a:hover {
     content: "-"; /* change the content of the summary */
     padding-right: 10px; /* add padding to the right */
   }
+
+  .download-links fieldset {
+    border: 1px solid var(--primary-text-color); /* add a border */
+    border-radius: 5px;
+    padding: 10px; /* add padding */
+    margin-bottom: 20px; /* add margin at the bottom */
+  }
+  
+  .download-links legend {
+    color: var(--secondary-text-color);
+    font-weight: bold; /* make the title text bold */
+    padding: 0 10px; /* add padding to the legend */
+    background-color:var(--primary-text-color); /* add a light gray background color to the legend */
+  }
+  
   
   
 
