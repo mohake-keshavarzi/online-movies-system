@@ -147,13 +147,43 @@ nav a:hover {
 .download-links a {
     margin-right: 10px;
     text-decoration: none;
-    color: var(--secondary-foreground);
+    color: var(--primary-foreground);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 .download-links a:hover {
-    color: var(--primary-foreground);
+    color: var(--secondary-foreground);
 }
+
+.download-links details {
+    color:var(--primary-foreground);
+    background-color: var(--primary-background);
+    border-radius: 20px;
+    border: 3px solid var(--secondary-foreground); /* add a border */
+    padding: 10px; /* add padding */
+    
+    margin-bottom: 20px; /* add margin at the bottom */
+  }
+  
+  .download-links  summary {
+    padding-bottom: 0.2em;
+    
+    font-weight: bold; /* make the summary text bold */
+    cursor: pointer; /* change the cursor to a pointer on hover */
+  }
+  
+  /* Change the appearance of the details when they're open */
+  .download-links  details[open] summary {
+    color: var(--primary-text-color);
+  }
+  
+  /* Change the appearance of the summary when the details are open */
+  .download-links  details[open] summary::before {
+    content: "-"; /* change the content of the summary */
+    padding-right: 10px; /* add padding to the right */
+  }
+  
+  
 
 /* Movie-details footer */
 footer {
