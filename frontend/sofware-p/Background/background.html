@@ -75,6 +75,10 @@
       img.className = "card";
       img.addEventListener("click", () => {
         h.style.backgroundImage = `url("./Assets/wallpaper${number}.jpg")`;
+        var link = document.createElement("a");
+        link.href = `./Assets/wallpaper${number}.jpg`;
+        var absolutePath = (link.protocol+"//"+link.host+link.pathname+link.search+link.hash);
+        localStorage.setItem("bgPreference",absolutePath);
       });
       // img.addEventListener("click" , ()=>{await fetch( POST METHOD TO BACK END FOR SAVING THE SELECTED BG)}
       div.appendChild(img);
