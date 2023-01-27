@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      color: #eee;
+      overflow: hidden;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .main {
+      width: 100vw;
+      height: 100vh;
+      background-position: center;
+    }
+    .blur {
+      backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      padding-top: 3rem;
+    }
+    .h3 {
+      text-align: center;
+      font-style: italic;
+      font-size: 2rem;
+    }
+    #backDiv {
+      justify-content: space-between;
+      height: 30rem;
+      width: 70%;
+      margin: 2rem auto;
+      border: 0.1rem solid white;
+      border-radius: 3rem;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card {
+      margin-right: 2rem;
+      height: 8rem;
+      width: 15rem;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      border-radius: 0.7rem;
+      flex: 0 0 25%;
+    }
+  </style>
+  <body>
+    <div class="main" id="main">
+      <div class="blur">
+        <h3 class="h3">Please Choose Your background to change</h3>
+        <div class="backgrounds" id="backDiv"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    //let res = await fetch(BACKEND URL FOR BACKEND)
+    //  let data = await res.json();
+
+    let h = document.getElementById("main");
+    h.style.backgroundImage = `url("./Assets/wallpaper1.jpg")`;
+    let div = document.getElementById("backDiv");
+    let makeCard = (number) => {
+      let img = document.createElement("img");
+      img.src = `./Assets/wallpaper${number}.jpg`;
+      img.className = "card";
+      img.addEventListener("click", () => {
+        h.style.backgroundImage = `url("./Assets/wallpaper${number}.jpg")`;
+        var link = document.createElement("a");
+        link.href = `./Assets/wallpaper${number}.jpg`;
+        var absolutePath = (link.protocol+"//"+link.host+link.pathname+link.search+link.hash);
+        localStorage.setItem("bgPreference",absolutePath);
+      });
+      // img.addEventListener("click" , ()=>{await fetch( POST METHOD TO BACK END FOR SAVING THE SELECTED BG)}
+      div.appendChild(img);
+    };
+    for (let i = 1; i < 10; i++) {
+      makeCard(i);
+    }
+  </script>
+</html>

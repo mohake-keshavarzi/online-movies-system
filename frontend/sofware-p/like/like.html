@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Detail</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      color: #eee;
+      overflow: hidden;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .main {
+      width: 100vw;
+      height: 100vh;
+      background-position: center;
+      background-image: url("./Assets/wallpaper1.jpg");
+    }
+    .blur {
+      backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      width: 70%;
+      height: 35rem;
+      background-color: rgba(150, 150, 150, 0.2);
+      border-radius: 5rem;
+      padding: 3rem;
+    }
+    .img {
+      width: 8rem;
+      height: 8rem;
+      object-position: center;
+      object-fit: fill;
+      border-radius: 1rem;
+    }
+    .box1 {
+      width: 100%;
+      height: 30%;
+      display: flex;
+      align-items: center;
+    }
+    .box2 {
+      width: 100%;
+      height: 60%;
+    }
+    .box3 {
+      width: 100%;
+      height: 10%;
+    }
+    .row1 {
+      min-width: 10%;
+      margin-right: 2rem;
+    }
+    .row2 {
+      width: 80%;
+    }
+    .title {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    #des {
+      height: 80%;
+      overflow: scroll;
+    }
+    .btn {
+      width: 20%;
+      height: 3.5rem;
+      background: rgba(255, 255, 255, 0);
+      margin: 0 auto;
+      color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    #likeIMG {
+      margin-right: 0.5rem;
+      height: 50%;
+      background-color: rgba(red, green, blue, alpha);
+    }
+    #des::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <div class="blur">
+        <div class="box">
+          <div class="box1">
+            <div class="row1">
+              <img src="" alt="" class="img" id="image" />
+            </div>
+            <div class="row2">
+              <p id="name" class="title"></p>
+            </div>
+          </div>
+          <div class="box2">
+            <h3>Description :</h3>
+            <p id="des"></p>
+          </div>
+          <div class="box3">
+            <button class="btn" id="btn">
+              <img src="" alt="" id="likeIMG" />
+              <p id="likeP"></p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    //let res = await fetch(BACKEND URL FOR GETTING DETAIL OF MOVIE)
+    //let data = await res.json()
+    //let resBG = await fetch(BACKEND URL FOR GETTING DETAIL OF MOVIE)
+    //let dataBG = await res.json()
+    //let main = document.getElementsByClassName("main");
+    //main.backgroundImage = url (BACKGROUND URL FROM BACKEND API)
+
+    let data = {
+      name: "Game of Thrones",
+      image: "./Assets/icon.jpg",
+      des: "Nine noble families wage war against each other in order to gain control over the mythical land of Westeros. Meanwhile, a force is rising after millenniums and threatens the existence of living men.",
+      liked: false,
+    };
+    let name = document.getElementById("name");
+    //swap name to backend prop of movie's name
+    name.innerText = data.name;
+    let des = document.getElementById("des");
+    des.innerText = data.des;
+    let image = document.getElementById("image");
+    image.src = data.image;
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", () => chnageLike(1));
+
+    let chnageLike = (i) => {
+      if (data.liked == true) {
+        btn.style.backgroundColor = `rgba(255,0,0,0.5)`;
+        let p = document.getElementById("likeP");
+        p.innerHTML = "Liked";
+        let image = document.getElementById("likeIMG");
+        image.src = "./Assets/like.svg";
+        if (i == 1) {
+          data.liked = false;
+          // SEND POST METHOD TO BACKEND TO CHNAGE LIKED STATUS OF MOVIE FOR USER
+        }
+      } else {
+        btn.style.backgroundColor = `rgba(220,220,220,0.3)`;
+        let p = document.getElementById("likeP");
+        p.innerHTML = "Not Liked";
+        let image = document.getElementById("likeIMG");
+        image.src = "./Assets/dislike.svg";
+        if (i == 1) {
+          data.liked = true;
+          // SEND POST METHOD TO BACKEND TO CHNAGE LIKED STATUS OF MOVIE FOR USER
+        }
+      }
+    };
+
+    chnageLike(0);
+  </script>
+</html>
